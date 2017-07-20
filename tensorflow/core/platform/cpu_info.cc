@@ -314,6 +314,9 @@ bool TestCPUFeature(CPUFeature feature) {
 #ifdef PLATFORM_IS_X86
   return CPUIDInfo::TestFeature(feature);
 #else
+  if(feature == SSE || feature == SSE2 || feature == SSSE3 || feature == SSE3) {
+    return true;
+  }
   return false;
 #endif
 }
